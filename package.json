@@ -1,0 +1,13 @@
+{
+  "name": "kitchen-bar-rfp",
+  "version": "1.0.0",
+  "description": "Handyman RFP sender — Lower Kitchen Bar Countertop Prep, Orlando FL",
+  "scripts": {
+    "dry-run": "node send-rfp.js --dry-run",
+    "send": "node send-rfp.js"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0",
+    "nodemailer": "^6.9.0"
+  }
+}
