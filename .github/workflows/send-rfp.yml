@@ -1,0 +1,28 @@
+name: Send RFP Emails
+
+on:
+  workflow_dispatch:
+    inputs:
+      access_token:
+        description: 'Gmail OAuth2 Access Token'
+        required: true
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/kitchen-bar-handyman-rfp-O5rj7
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Send RFP emails
+        env:
+          GMAIL_ACCESS_TOKEN: ${{ github.event.inputs.access_token }}
+        run: node send-gmail-api.js
