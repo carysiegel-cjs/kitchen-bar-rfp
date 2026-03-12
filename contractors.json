@@ -35,48 +35,128 @@
     "name": "RR Handyman & Renovation Services",
     "contact": "RR Handyman Team",
     "phone": "(305) 609-6847",
-    "email": null,
+    "email": "akoyainfo@gmail.com",
     "website": "https://rrhandymanandrenovations.com",
-    "notes": "20+ years experience, carpentry, drywall, electrical, framing — contact via website"
+    "notes": "20+ years experience, carpentry, drywall, electrical, framing"
   },
   {
-    "name": "Mid Florida Home Repairs, LLC",
-    "contact": "Mid Florida Home Repairs",
-    "phone": "(407) 399-3600",
-    "email": null,
-    "website": "http://midfloridahomerepairs.com",
-    "notes": "BBB accredited, licensed & insured, framing, drywall, kitchen remodel, Orlando/Clermont area"
+    "name": "Orlando Handyman & Maintenance",
+    "contact": "Orlando Handyman Team",
+    "phone": "(321) 987-4328",
+    "email": "info@orlandohandymanfl.com",
+    "website": "https://orlandohandymanfl.com",
+    "notes": "Licensed & insured, property maintenance, handyman services, Orlando area"
   },
   {
-    "name": "Loose Ends Handyman Services",
-    "contact": "Blake Chambers",
-    "phone": "(407) 279-7513",
-    "email": null,
-    "website": "https://looseendshandyman.com",
-    "notes": "Licensed & insured $1M, framing, drywall, electrical — quotes via website form"
+    "name": "Carcani & Sons Handyman Repairs, LLC",
+    "contact": "Valter Carcani",
+    "phone": "(407) 680-9780",
+    "email": "handycarcani@gmail.com",
+    "website": "https://carcaniandsonshandyman.com",
+    "notes": "Family-run since 2015, drywall, kitchen renovations, tile, cabinets, countertops"
   },
   {
-    "name": "Ramm Drywall",
-    "contact": "Ramm Drywall Team",
-    "phone": "(386) 668-7633",
-    "email": null,
-    "website": "https://www.rammdrywall.com",
-    "notes": "17+ years in Central FL, drywall, metal framing, paint — contact via website"
+    "name": "New Ceilings Inc.",
+    "contact": "New Ceilings Team",
+    "phone": "(407) 378-6040",
+    "email": "info@newceilings.com",
+    "website": "https://newceilings.com",
+    "notes": "Since 2011, drywall repair & install, popcorn ceiling removal, 1-yr warranty, 100+ 5-star reviews"
   },
   {
-    "name": "Dr. Handyman Orlando LLC",
-    "contact": "Dr. Handyman Orlando",
-    "phone": "(407) 871-3110",
-    "email": null,
-    "website": "https://www.drhandymanorlando.com",
-    "notes": "15+ years, drywall, kitchen upgrades, flooring — contact via website form"
+    "name": "Hole in the Wall Drywall Repair",
+    "contact": "Hole in the Wall Team",
+    "phone": "(407) 283-1069",
+    "email": "office@holeinthewall.com",
+    "website": "https://www.holeinthewall.com",
+    "notes": "Drywall repair & install specialists, Orlando franchise, licensed"
   },
   {
-    "name": "Mr. Handyman of Windermere, W & S Orlando",
-    "contact": "Mr. Handyman Orlando",
-    "phone": "(689) 210-4336",
-    "email": null,
-    "website": "https://www.mrhandyman.com/windermere-w-s-orlando/",
-    "notes": "National franchise, Done Right Promise, drywall, carpentry, remodel — contact via website"
+    "name": "My Handy Craftsman Inc.",
+    "contact": "My Handy Craftsman Team",
+    "phone": "(407) 644-8642",
+    "email": "contact@myhandycraftsman.com",
+    "website": "https://orlandohandymanservice.com",
+    "notes": "Licensed contractor, Winter Park, kitchen remodel, framing, carpentry, drywall"
+  },
+  {
+    "name": "Golden Hands Handymans",
+    "contact": "Golden Hands Team",
+    "phone": "(689) 465-5045",
+    "email": "goldenhandshandymans@gmail.com",
+    "website": "https://goldenhandshandymans.com",
+    "notes": "Windermere/Orlando, home repairs, renovations, drywall, kitchen cabinet services"
+  },
+  {
+    "name": "Belair Custom Home Improvements",
+    "contact": "Belair Home Improvements Team",
+    "phone": "(407) 463-7091",
+    "email": "info@belairhomeimprovements.com",
+    "website": "https://belairhomeimprovements.com",
+    "notes": "20+ years, St. Cloud/Orlando, drywall, kitchen renovations, demolition, full contractor"
+  },
+  {
+    "name": "TR Drywall of Central Florida, LLC",
+    "contact": "TR Drywall Team",
+    "phone": "(407) 334-9731",
+    "email": "info@TRDrywallFL.com",
+    "website": "https://www.trdrywallfl.com",
+    "notes": "Kissimmee/Orlando, 20+ years, wood framing, drywall hanging/install/repair, finishing, texture, paint"
+  },
+  {
+    "name": "The Patch Boys of South Orlando & Kissimmee",
+    "contact": "The Patch Boys Team",
+    "phone": "(407) 472-8855",
+    "email": "SOrlandoKissimmee@thepatchboys.com",
+    "website": "https://www.thepatchboys.com/south-orlando-kissimmee",
+    "notes": "Drywall repair specialists, free estimates, BBB accredited"
+  },
+  {
+    "name": "P. Fagan Handyman Services",
+    "contact": "P. Fagan Handyman Team",
+    "phone": "(321) 278-9668",
+    "email": "Pfaganhandymanservices@gmail.com",
+    "website": "https://pfaganhandymanservicesllc.com",
+    "notes": "Orlando/Lake County, 10+ years, drywall, carpentry, licensed & insured"
+  },
+  {
+    "name": "EZ Does It Handyman LLC",
+    "contact": "EZ Does It Team",
+    "phone": "(407) 994-5211",
+    "email": "info@ezdoesithandyman.com",
+    "website": "https://ezdoesithandyman.com",
+    "notes": "Oviedo/East Orlando, 15+ years, Seminole & Orange County, general handyman"
+  },
+  {
+    "name": "My Handyman Orlando",
+    "contact": "My Handyman Team",
+    "phone": "(407) 308-5460",
+    "email": "office@myhandymanorlando.com",
+    "website": "https://www.myhandymanorlando.com",
+    "notes": "Casselberry/Orlando area, home updates, repairs, maintenance"
+  },
+  {
+    "name": "Central FL Drywall",
+    "contact": "Central FL Drywall Team",
+    "phone": "(407) 286-1241",
+    "email": "info@centralfldrywall.com",
+    "website": "https://www.centralfldrywall.com",
+    "notes": "Orlando, framing & drywall, commercial & residential, women-owned WBE"
+  },
+  {
+    "name": "Jason's Handyman Services",
+    "contact": "Jason",
+    "phone": "(904) 655-6393",
+    "email": "jasondrewhandyman@gmail.com",
+    "website": "https://www.facebook.com/jasondrewhandyman134",
+    "notes": "Orlando, family-owned, painting, general repairs, handyman"
+  },
+  {
+    "name": "Sunshine Drywall & Handyman LLC",
+    "contact": "Sunshine Drywall Team",
+    "phone": "(407) 987-1249",
+    "email": "Yeury6860@gmail.com",
+    "website": "https://www.facebook.com/people/Sunshine-Drywall-Handyman-LLC",
+    "notes": "Serves Orlando, Kissimmee, Lakeland; drywall install & repair"
   }
 ]

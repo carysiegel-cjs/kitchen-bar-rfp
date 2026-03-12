@@ -1,28 +1,16 @@
 #!/usr/bin/env node
 /**
  * send-rfp.js
- * Sends RFP emails to Orlando handyman contractors via Gmail OAuth2.
- *
- * Setup:
- *   1. npm install googleapis nodemailer
- *   2. Set env vars (or create .env):
- *        GMAIL_CLIENT_ID=...
- *        GMAIL_CLIENT_SECRET=...
- *        GMAIL_REFRESH_TOKEN=...
- *        GMAIL_FROM=your@gmail.com
- *   3. node send-rfp.js [--dry-run]
+ * Sends RFP emails to Orlando handyman contractors via Gmail SMTP + App Password.
  */
 
-const { google } = require('googleapis');
 const nodemailer = require('nodemailer');
 const contractors = require('./contractors.json');
+const path = require('path');
 
-const {
-  GMAIL_CLIENT_ID,
-  GMAIL_CLIENT_SECRET,
-  GMAIL_REFRESH_TOKEN,
-  GMAIL_FROM,
-} = process.env;
+const GMAIL_FROM = 'carysiegel@gmail.com';
+const GMAIL_APP_PASSWORD = 'zwhy yfvw jzro fkgm';
+const PHOTO_PATH = path.join(__dirname, 'IMG_5540.jpeg');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
@@ -35,6 +23,8 @@ I am seeking bids from qualified handymen/contractors for a kitchen bar modifica
 
 PROJECT SUMMARY:
 Removal of an existing raised bar overhang, modification of stud framing to standard counter height, electrical gang box relocation, drywall patching, and finish work — all in preparation for a new countertop installation.
+
+A photo of the existing bar is attached for reference.
 
 SCOPE OF WORK:
 • Protect adjacent floors, cabinets, and work area prior to demolition
@@ -54,6 +44,8 @@ BID REQUIREMENTS:
 • Rough estimates are accepted and welcome — subject to on-site inspection
 • Please itemize any exclusions or allowances
 
+QUOTE DEADLINE: March 18, 2026
+
 TO SCHEDULE AN ON-SITE INSPECTION OR SUBMIT YOUR QUOTE:
 Text 407-529-6066 — we accept quotes and estimates by text or email.
 
@@ -66,34 +58,7 @@ Cary Siegel
 407-529-6066`;
 }
 
-async function createTransporter() {
-  const oauth2Client = new google.auth.OAuth2(
-    GMAIL_CLIENT_ID,
-    GMAIL_CLIENT_SECRET,
-    'https://developers.google.com/oauthplayground'
-  );
-
-  oauth2Client.setCredentials({ refresh_token: GMAIL_REFRESH_TOKEN });
-  const { token: accessToken } = await oauth2Client.getAccessToken();
-
-  return nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      type: 'OAuth2',
-      user: GMAIL_FROM,
-      clientId: GMAIL_CLIENT_ID,
-      clientSecret: GMAIL_CLIENT_SECRET,
-      refreshToken: GMAIL_REFRESH_TOKEN,
-      accessToken,
-    },
-  });
-}
-
 async function main() {
-  if (DRY_RUN) {
-    console.log('=== DRY RUN — no emails will be sent ===\n');
-  }
-
   const emailContractors = contractors.filter(c => c.email);
   const noEmailContractors = contractors.filter(c => !c.email);
 
@@ -103,38 +68,42 @@ async function main() {
   console.log(`\nContractors without email — CALL/TEXT instead (${noEmailContractors.length}):`);
   noEmailContractors.forEach(c => console.log(`  ☎ ${c.name} — ${c.phone} — ${c.website}`));
 
-  if (emailContractors.length === 0) {
-    console.log('\nNo email addresses found. Nothing to send.');
-    return;
-  }
-
   if (DRY_RUN) {
-    console.log('\n--- Sample email body ---');
+    console.log('\n=== DRY RUN — no emails sent ===');
+    console.log('\n--- Sample email ---');
+    console.log(`To: ${emailContractors[0].email}`);
+    console.log(`Subject: ${SUBJECT}`);
+    console.log(`Attachment: IMG_5540.jpeg`);
     console.log(buildEmailBody(emailContractors[0]));
     return;
   }
 
-  if (!GMAIL_CLIENT_ID || !GMAIL_CLIENT_SECRET || !GMAIL_REFRESH_TOKEN || !GMAIL_FROM) {
-    console.error('\nMissing Gmail credentials. Set env vars:\n  GMAIL_CLIENT_ID\n  GMAIL_CLIENT_SECRET\n  GMAIL_REFRESH_TOKEN\n  GMAIL_FROM');
-    process.exit(1);
-  }
-
-  const transporter = await createTransporter();
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: GMAIL_FROM,
+      pass: GMAIL_APP_PASSWORD,
+    },
+  });
 
   for (const contractor of emailContractors) {
     try {
       const info = await transporter.sendMail({
-        from: GMAIL_FROM,
+        from: `Cary Siegel <${GMAIL_FROM}>`,
         to: contractor.email,
         subject: SUBJECT,
         text: buildEmailBody(contractor),
+        attachments: [
+          {
+            filename: 'kitchen-bar-photo.jpeg',
+            path: PHOTO_PATH,
+          },
+        ],
       });
-      console.log(`✅ Sent to ${contractor.name} (${contractor.email}) — Message ID: ${info.messageId}`);
+      console.log(`✅ Sent to ${contractor.name} (${contractor.email}) — ${info.messageId}`);
     } catch (err) {
-      console.error(`❌ Failed to send to ${contractor.name} (${contractor.email}): ${err.message}`);
+      console.error(`❌ Failed: ${contractor.name} (${contractor.email}): ${err.message}`);
     }
-
-    // Polite delay between sends
     await new Promise(r => setTimeout(r, 1500));
   }
 
